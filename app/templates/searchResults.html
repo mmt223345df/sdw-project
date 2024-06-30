@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+<h1>searchResults</h1>
+
+{% block content %}
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Course Name</th>
+        <th>Course Number</th>
+        <th>Question ID</th>
+        <th>Question Text</th>
+        <th>V Text</th>
+        <th>Answer ID</th>
+        <th>LLM Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in results %}
+        <tr>
+          <td>{{ result.Category }}</td>
+          <td>{{ result.CName }}</td>
+          <td>{{ result.CNumber }}</td>
+          <td><a href="/SearchTeacher/qid:{{ result.Qid }}">{{ result.Qid }}</a></td>
+          <td><a href="/SearchTeacher/qid:{{ result.Qid }}">{{ result.QText }}</a></td>
+          <td><a href="/SearchTeacher/qid:{{ result.Qid }}">{{ result.VText }}</a></td>
+          <td>{{ result.AnswerID }}</td>
+          <td>{{ result.LLM_Score }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

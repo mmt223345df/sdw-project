@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+<h1>Save History</h1>
+
+{% block content %}
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Sid</th>
+        <th>QCode</th>
+        <th>Q_Text</th>
+        <th>LLM_Name</th>
+        <th>LLMAnswerImg</th>
+        <th>LLM_Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for result in results %}
+        <tr>
+          <td>{{ result.Sid }}</td>
+          <td>{{ result.QCode }}</td>
+          <td>{{ result.Q_Text }}</td>
+          <td>{{ result.LLM_Name }}</td>
+          <td style="text-align: center">
+              <img src="data:;base64,{{ result.LLMAnswerImg}}" alt="" width="150px">
+          </td>
+          <td>{{ result.LLM_Score }}</td>
+          <!--Check the details of the data submitted to add experiment-->
+          <td><a href="/SearchTeacher/sid:{{ result.Sid }}" onclick="alert('success submit add experiment Request!')"> Submit</a></td>
+
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

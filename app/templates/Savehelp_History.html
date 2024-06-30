@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+<h1>Save help History</h1>
+
+{% block content %}
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Sid</th>
+            <th>Tid</th>
+            <th>LLM_Prompt</th>
+            <th>LLM_Name</th>
+            <th>PromptAnswerImg</th>
+            <th>Help_score</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for result in results %}
+            <tr>
+                <td>{{ result.Sid }}</td>
+                <td>{{ result.Tid }}</td>
+                <td>{{ result.LLM_Prompt }}</td>
+                <td>{{ result.LLM_Name }}</td>
+                <td style="text-align: center">
+                    <img src="data:;base64,{{ result.PromptAnswerImg }}" alt="" width="150px">
+                </td>
+                <td>{{ result.Help_score }}</td>
+                <!--Check the details of the data submitted to add experiment-->
+                <td><a href="/SearchStudent/sid:{{ result.Sid }}"
+                       onclick="alert('success submit add experiment Request!')"> Submit</a></td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+<h1>View Comment</h1>
+
+
+{% block content %}
+    <tbody>
+    <p><strong>LLM Answer Image:</strong></p>
+    <p>
+        <img src="data:;base64,{{ results.LLMAnswerImg }}" alt="" width="280px">
+    </p>
+    <p><strong>Comment:</strong> {{ results.Comments }}</p>
+
+    <br>
+    </tbody>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<h1>You have save experiment!</h1>
+
+
+{% block content %}
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Qcode</th>
+        <th>Q_Text</th>
+        <th>LLM_Name</th>
+        <th>LLMAnswerImg</th>
+        <th>LLM_Score</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{ qid }}</td>
+          <td>{{ q_text }}</td>
+          <td>{{ llm_name }}</td>
+          <td>{{ llmanswerImg }}</td>
+          <td>{{ llm_score}}</td>
+        </tr>
+    </tbody>
+  </table>
+
+{% endblock %}

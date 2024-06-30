@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6" style="text-align: center">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="{{ url_for('RequestAdmin.R_Add_Experiment') }}" class="btn btn-primary btn-block mb-3">
+                            Add Experiment
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{{ url_for('RequestAdmin.R_Change_Score') }}" class="btn btn-primary btn-block mb-3">
+                            Change Score
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="{{ url_for('RequestAdmin.R_Add_Course') }}" class="btn btn-primary btn-block mb-3">
+                            Add Course
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{{ url_for('RequestAdmin.R_Add_Help_Topic') }}" class="btn btn-primary btn-block mb-3">
+                            Add Help Topic
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

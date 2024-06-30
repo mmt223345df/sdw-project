@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+<h1>save Helptopic</h1>
+
+{% block content %}
+<form method="POST">
+  <div class="input-container">
+    <label for="tid">topic ID:</label>
+    <!--here have a bug:we can't get the qid in value-->
+    <input type="text" id="tid" name="tid" value="{{ tid }}" required>
+  </div>
+  <div class="input-container">
+    <label for="llm_name">LLM Name:</label>
+    <input type="text" id="llm_name" name="llm_name">
+  </div>
+  <div class="input-container">
+    <label for="llm_prompt">llm_prompt:</label>
+    <input type="text" id="llm_prompt" name="llm_prompt" style="width: 500px; height: 200px;" required>
+  </div>
+
+  <div class="input-container">
+    <label for="PromptAnswerImg">PromptAnswerImg:</label>
+    <input type="text" id="PromptAnswerImg" name="PromptAnswerImg" style="width: 500px; height: 200px;" required>
+  </div>
+
+  <div class="input-container">
+    <label for="llm_score">LLM Score:</label>
+    <input type="text" id="llm_score" name="llm_score" required>
+  </div>
+
+  <form action="/SearchStudent/saveHelptopic/{{ tid }}/" method="post">
+    <button>Save</button>
+  </form>
+</form>
+{% endblock %}

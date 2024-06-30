@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+<h1>New Course</h1>
+
+{% block content %}
+<form method="POST">
+<div class="col-md-4">
+    <label for="CName">CName:</label>
+    <input type="text"  name="CName" style="width: 300px; height: 50px;"required>
+</div>
+<div>
+    <select class="form-control" name="selectcate">
+        <option value="Computers and programming" name="Computers and programming">Computers and programming</option>
+        <option value="Math" name="Math">Math</option>
+        <option value="Writing" name="Writing">Writing</option>
+    </select>
+</div>
+<div class="col-md-4">
+    <label for="Explain">Explain</label>
+    <input type="text"  name="Explain" style="width: 500px; height: 200px;"required>
+</div>
+
+<div class="col-md-4">
+    <input type="submit" value="Submit" onclick="alert('success submit add course Request!')">
+</div>
+</form>
+
+{% endblock %}

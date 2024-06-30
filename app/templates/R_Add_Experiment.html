@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Add Experiment</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>VText</th>
+        <th>LLMAnswerImg</th>
+        <th>QCode</th>
+        <th>Score</th>
+        <th>Approved</th>
+        <th>Refused</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for experiment in experiments %}
+      <tr>
+        <td>{{ experiment.Vtext }}</td>
+        <td style="text-align: center"><img src="data:;base64,{{ experiment.LLMAnswerImg }}" alt="" width="150px"></td>
+        <td>{{ experiment.QCode }}</td>
+        <td>{{ experiment.Score }}</td>
+        <td>
+          <form action="/RequestAdmin/request/move_experiment/{{ experiment.AnswerID }}" method="POST">
+            <button type="submit">Yes</button>
+          </form>
+        </td>
+        <td>
+          <form id="deleteForm" action="/RequestAdmin/request/delete_experiment/{{ experiment.AnswerID }}" method="POST">
+            <button type="submit">No</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}

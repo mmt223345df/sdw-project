@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+<h1>save experiment</h1>
+
+{% block content %}
+<form method="POST">
+  <div class="input-container">
+    <label for="qid">Question ID:</label>
+    <!--here have a bug:we can't get the qid in value-->
+    <input type="text" id="qid" name="qid" value="{{ qid }}" required>
+  </div>
+  <div class="input-container">
+    <label for="llm_name">LLM Name:</label>
+    <input type="text" id="llm_name" name="llm_name">
+  </div>
+  <div class="input-container">
+    <label for="vtext">Vtext:</label>
+    <input type="text" id="vtext" name="vtext" style="width: 500px; height: 200px;" required>
+  </div>
+
+  <div class="input-container">
+    <label for="llm_solution">LLM Solution:</label>
+    <input type="text" id="llm_solution" name="llm_solution" style="width: 500px; height: 200px;" required>
+  </div>
+
+  <div class="input-container">
+    <label for="llm_score">LLM Score:</label>
+    <input type="text" id="llm_score" name="llm_score" required>
+  </div>
+
+  <button type="submit" name="save" value="Submit" ">Save</button>
+</form>
+{% endblock %}

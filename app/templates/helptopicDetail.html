@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+<h1>help topic Detail</h1>
+
+
+{% block content %}
+    <h2>Helptopic Details</h2>
+    <p><strong>topic Text:</strong> {{ tid }}</p>
+    <!--had bug:If SubTopic_name has a value, it is displayed. Otherwise, Topic_name is displayed-->
+
+    <!--have bug,need change-->
+    {% if gettopic.SubTopic_name %}
+        <p><strong>help SubTopic:</strong> {{ gettopic.SubTopic_name }}</p>
+    {% else %}
+        <p><strong>help Topic:</strong> {{ gettopic.Topic_name }}</p>
+    {% endif %}
+
+    <tbody>
+
+    {% for result in results %}
+        <p><strong>LLM Name:</strong> {{ result.LLM_Name }}</p>
+        <p><strong>LLM prompt:</strong> {{ result.LLM_Prompt }}</p>
+        <p><strong>LLM prompt answer:</strong> </p>
+        <p>
+            <img src="data:;base64,{{ result.PromptAnswerImg }}" alt="" width="280px">
+        </p>
+        <p><strong>LLM help Score:</strong> {{ result.Help_score }}</p>
+
+    {% endfor %}
+
+    <br>
+    <!--need change-->
+    <form action="/SearchStudent/save_tid:{{ tid }}" method="post">
+        <button>Save Helptopic</button>
+    </form>
+    </tbody>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 style="text-align: center">
+      {% block title %}Log In{% endblock %}
+  </h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <p style="text-align: center">
+        <label for="email">Email</label>
+        <input name="email" id="username" required><br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+    </p>
+    <div class="col-md-4" style="text-align: center">
+        <select class="form-control" name="usertype" >
+            <option value="Teacher" name="Teacher">Teacher</option>
+            <option value="Student" name="Student">Student</option>
+            <option value="Administer" name="Administer">Administer</option>
+        </select>
+    </div>
+    <div style="text-align: center">
+        <input type="submit" value="Log In" style="text-align: center">
+    </div>
+  </form>
+{% endblock %}

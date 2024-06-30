@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Add Help Topic</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Rid</th>
+            <th>Tid</th>
+            <th>LLM_Prompt</th>
+            <th>PromptAnswerImg</th>
+            <th>Score</th>
+            <th>Approved</th>
+            <th>Refused</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for htopic in htopics %}
+            <tr>
+                <td>{{ htopic.Rid }}</td>
+                <td>{{ htopic.Tid }}</td>
+                <td>{{ htopic.LLM_Prompt }}</td>
+                <td style="text-align: center"><img src="data:;base64,{{ htopic.PromptAnswerImg }}" alt="" width="150px">
+                </td>
+                <td>{{ htopic.Score }}</td>
+                <td>
+                    <form action="/RequestAdmin/request/move_htopic/{{ htopic.Rid }}" method="POST">
+                        <button type="submit">Yes</button>
+                    </form>
+                </td>
+                <td>
+                    <form id="deleteForm" action="/RequestAdmin/request/delete_htopic/{{ htopic.Rid }}" method="POST">
+                        <button type="submit">No</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

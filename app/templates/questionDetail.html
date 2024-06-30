@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+<h1>question Detail</h1>
+
+{% block content %}
+    <h2>Question Details</h2>
+    <p><strong>Question Text:</strong> {{ qid }}</p>
+    <!--have bug:if there have same?-->
+    {% if results.VText %}
+        <p><strong>V Text:</strong> {{ results.VText }}</p>
+    {% endif %}
+    {% if results.QText %}
+        <p><strong>Question Text:</strong> {{ results.QText }}</p>
+    {% endif %}
+
+    <tbody>
+
+    {% for result in results %}
+        <p><strong>LLM Name:</strong> {{ result.LLM_Name }}</p>
+        <p><strong>LLM Answer Image:</strong></p>
+        <p>
+            <a href="/SearchTeacher/aid:{{ result.AnswerID }}">
+                <img src="data:;base64,{{ result.LLMAnswerImg }}" alt="" width="280px">
+            </a>
+        </p>
+        <p><strong>LLM Score:</strong> {{ result.LLM_Score }}</p>
+    {% endfor %}
+
+    <br>
+    <form action="/SearchTeacher/save_qid:{{ qid }}" method="post">
+        <button>Save experiment</button>
+    </form>
+    </tbody>
+{% endblock %}

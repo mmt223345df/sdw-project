@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<h1>you have save this helptopic!</h1>
+
+{% block content %}
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Tid</th>
+        <th>LLM_Prompt</th>
+        <th>LLM_Name</th>
+        <th>PromptAnswerImg</th>
+        <th>Help_score</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{ tid }}</td>
+          <td>{{ prompt }}</td>
+          <td>{{ name }}</td>
+          <td>{{ PromptAnswer }}</td>
+          <td>{{ score }}</td>
+        </tr>
+    </tbody>
+  </table>
+
+{% endblock %}

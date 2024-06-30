@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Add Course</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Explanation</th>
+        <th>Category</th>
+        <th>Approved</th>
+        <th>Refused</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for course in courses %}
+      <tr>
+        <td>{{ course.CourseName }}</td>
+        <td>{{ course.Explanation }}</td>
+        <td>{{ course.Category }}</td>
+        <td>
+          <form action="/RequestAdmin/request/move_course/{{ course.Rid }}" method="POST">
+            <button type="submit">Yes</button>
+          </form>
+        </td>
+        <td>
+          <form id="deleteForm" action="/RequestAdmin/request/delete_course/{{ course.Rid }}" method="POST">
+            <button type="submit">No</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}

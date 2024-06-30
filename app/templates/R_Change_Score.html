@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Change Score</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Uid</th>
+        <th>Qid</th>
+        <th>Explanation</th>
+        <th>Score</th>
+        <th>Approved</th>
+        <th>Refused</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for score in scores %}
+      <tr>
+        <td>{{ score.Uid }}</td>
+        <td>{{ score.Qid }}</td>
+        <td>{{ score.Explanation }}</td>
+        <td>{{ score.Score }}</td>
+        <td>
+          <form action="/RequestAdmin/request/move_chaning/{{ score.Rid }}" method="POST">
+            <button type="submit">Yes</button>
+          </form>
+        </td>
+        <td>
+          <form id="deleteForm" action="/RequestAdmin/request/delete_chaning/{{ score.Rid }}" method="POST">
+            <button type="submit">No</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}

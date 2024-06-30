@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+<h1>You have submit add course request!</h1>
+
+
+{% block content %}
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Explanation</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{ coursename }}</td>
+          <td>{{ explanation }}</td>
+          <td>{{ category }}</td>
+        </tr>
+    </tbody>
+  </table>
+
+{% endblock %}

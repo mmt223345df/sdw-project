@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+<h1>Change Score</h1>
+
+{% block content %}
+<form method='post'>
+<div class="input-container">
+    <label for="aid">aid:</label>
+    <input type="text" id="aid" name="aid" value="{{aid}}" style="width: 300px; height: 50px;" required>
+</div>
+<div class="input-container">
+    <label for="score">new Score:</label>
+    <input type="text" id="score" name="score" style="width: 300px; height: 50px;" required>
+</div>
+<div class="input-container">
+    <label for="explain">Explain</label>
+    <input type="text" id="explain" name="explain" style="width: 500px; height: 200px;" required>
+</div>
+
+<div class="input-container">
+    <input type="submit" value="submit" onclick="alert('success submit change score Request!')">
+</div>
+</form>
+{% endblock %}

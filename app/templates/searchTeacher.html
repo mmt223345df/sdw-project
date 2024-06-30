@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 style="text-align: center">{% block title %}Search Teacher{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="text-align: center;margin: 10px 10%; background-image: url(new1.jpg)">
+    <div class="row">
+        <div class="col-md-6 text-right">
+            <a href="{{ url_for('SearchTeacher.add_course') }}" method='post'>Add New Course</a>
+{#                <a href="/SearchTeacher/save_history">Save History</a>#}
+        </div>
+    </div>
+    <form method="post" style="margin: 10px 20%;">
+        <div class="row mt-4">
+            <div class="col-md-4" style="float: left;margin-right: 2%;width: 21%;">
+                <select class="form-control" name="searchtea" style="height: 30px;width: 100%;">
+                    <option value="course_name_number" name="course_name_number">Course Name & Number</option>
+                    <option value="course_category" name="course_category">Course Category</option>
+                    <option value="llm_score" name="llm_score">LLM Score (0-5)</option>
+                </select>
+            </div>
+            <div class="col-md-6" style="float: left;margin-right: 2%;width: 63%;">
+                <input style="height: 26px;width: 100%;" type="text" class="form-control" name="searchteain" placeholder="Enter your search query"
+                       required>
+            </div>
+            <div class="col-md-2" style="float: left;margin-right: 2%;width: 10%;">
+                <button style="height: 30px;width: 100%;" class="btn btn-primary btn-block">Search</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

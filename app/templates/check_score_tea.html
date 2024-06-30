@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<h1>You have submit change score request!</h1>
+
+
+{% block content %}
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Uid</th>
+        <th>Aid</th>
+        <th>New Score</th>
+        <th>Explanation</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>{{ uid }}</td>
+          <td>{{ aid }}</td>
+          <td>{{ score }}</td>
+          <td>{{ explanation }}</td>
+        </tr>
+    </tbody>
+  </table>
+
+{% endblock %}

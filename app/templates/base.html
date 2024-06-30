@@ -1,0 +1,47 @@
+<!doctype html>
+{% if Uid %}
+    <div style="text-align: left;margin: 10px auto;background-color:#f1eded;padding: 10px 20px;">
+            <span style="margin-right: 20px;">
+                <a>Hello,{{ Uid }}!</a>
+            </span>
+
+        {% if UserType=='Student' %}
+            <span style="margin-right: 20px;">
+                <a href="{{ url_for('SearchStudent.search_student') }}">Homepage</a>
+            </span>
+            <span style="margin-right: 20px;">
+                <a href="{{ url_for('SearchStudent.save_history') }}">Saving History</a>
+            </span>
+
+        {% elif UserType=='Teacher' %}
+            <span style="margin-right: 20px;">
+                <a href="{{ url_for('SearchTeacher.search_teacher') }}">Homepage</a>
+            </span>
+            <span style="margin-right: 20px;">
+                <a href="{{ url_for('SearchTeacher.save_history') }}">Saving History</a>
+            </span>
+
+        {% else %}
+            <span style="margin-right: 20px;">
+                <a href="{{ url_for('RequestAdmin.Request') }}">Homepage</a>
+            </span>
+        {% endif %}
+        <span style="margin-right: 20px;">
+                <a href="{{ url_for('user.logout') }}">Logout</a>
+        </span>
+    </div>
+
+{% else %}
+    <li><a href="{{ url_for('user.register') }}">Register</a></li>
+    <li><a href="{{ url_for('user.login') }}">Login</a></li>
+{% endif %}
+
+<title>{% block title %}{% endblock %} </title>
+
+<section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+
+    {% block content %}{% endblock %}
+</section>
